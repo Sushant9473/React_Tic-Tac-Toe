@@ -62,6 +62,15 @@ function Board({ xIsNext, squares, onPlay }) {
     }
     onPlay(newSquares);
   }
+
+  const winner = calculateWinner(squares);
+  let status;
+  if (winner) {
+    status = "Winner: " + winner;
+  } else {
+    status = "Next player: " + (xIsNext ? "X" : "O");
+  }
+  
   return (
     <>
       <div className="status">{status}</div>
